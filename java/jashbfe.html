@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="-" onclick="if(db.value > 0) db.value = db.value - 1 ">
+    <input type="text" name="" id="db" value="1">
+    <input type="button" value="+" onclick="db.value = Number(db.value) + 1.0  ">
+    <input type="submit" value="KOSÁR" onclick="add('kenyer_db',db.value); refresh()">
+    <hr>
+    <p>A kenyér ára: <span id="kenyer_ar" style="color: red;">...ft</span></p>
+
+
+    <script>
+        var _kenyer = 750;
+        var _vaj = 380;
+
+        function refresh() {
+            document.getElementById('kenyer_ar').innerHTML = _kenyer * Number(localStorage.getItem("kenyer_db"))
+
+
+        }
+
+        function add(nev, ertek) {
+            localStorage.setItem(nev, ertek);
+        }
+
+    </script>
+
+</body>
+
+</html>
